@@ -15,9 +15,39 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
+    },
+    // Add your own logo and icon here
+    components: {
+      graphics: {
+        Icon: '/graphics/Icon/index.tsx#Icon',
+        Logo: '/graphics/Logo/index.tsx#Logo',
+      },
+    },
+    // Add your own meta data here
+    meta: {
+      description: 'Splitscale - Reliable digital solutions that work',
+      icons: [
+        {
+          type: 'image/png',
+          rel: 'icon',
+          url: '/assets/favicon.svg',
+        },
+      ],
+      openGraph: {
+        description:
+          'Splitscale delivers custom software solutions that are reliable, scalable, and tailored to your needs.',
+        images: [
+          {
+            height: 600,
+            url: '/assets/ogImage.png',
+            width: 800,
+          },
+        ],
+        title: 'Splitscale - Reliable digital solutions that work',
+      },
+      titleSuffix: '- Splitscale',
     },
   },
   collections: [Users, Media],
